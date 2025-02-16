@@ -10,16 +10,7 @@ import {
   useTransform,
 } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image"; // Added missing import
 import { useRef, useState } from "react";
-import {
-  IconBrandGithub,
-  IconBrandX,
-  IconExchange,
-  IconHome,
-  IconNewSection,
-  IconTerminal2,
-} from "@tabler/icons-react";
 
 export const FloatingDock = ({
   items,
@@ -101,7 +92,7 @@ const FloatingDockDesktop = ({
   items: { title: string; icon: React.ReactNode; href: string }[];
   className?: string;
 }) => {
-  const mouseX = useMotionValue(Infinity); // Changed let to const
+  const mouseX = useMotionValue(Infinity);
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
@@ -129,7 +120,7 @@ function IconContainer({
   icon: React.ReactNode;
   href: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null); // Changed let to const
+  const ref = useRef<HTMLDivElement>(null);
 
   const distance = useTransform(mouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };

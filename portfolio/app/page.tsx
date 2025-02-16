@@ -15,6 +15,12 @@ import {
   IconHome
 } from "@tabler/icons-react";
 
+type SectionHeaderProps = {
+  title: string;
+  bgColor?: string;
+  textColor?: string;
+};
+
 const Loader = () => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-500">
     <div className="relative h-16 w-16">
@@ -24,7 +30,11 @@ const Loader = () => (
   </div>
 );
 
-const SectionHeader = ({ title, bgColor = "bg-[#F9F9F9]", textColor = "text-black" }) => (
+const SectionHeader: React.FC<SectionHeaderProps> = ({ 
+  title, 
+  bgColor = "bg-[#F9F9F9]", 
+  textColor = "text-black" 
+}) => (
   <div 
     className={`group w-full max-w-[90%] md:max-w-[80%] h-[60px] rounded-3xl relative overflow-hidden ${bgColor} 
     flex items-center justify-center opacity-0 translate-y-4 transition-all duration-700 ease-out animate-fade-up
@@ -44,14 +54,12 @@ const SectionHeader = ({ title, bgColor = "bg-[#F9F9F9]", textColor = "text-blac
 );
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
     
     const timer = setTimeout(() => {
-      setIsLoading(false);
       setMounted(true);
     }, 1000);
 
@@ -118,7 +126,7 @@ export default function Home() {
             </div>
           </Magnet>
 
-          <div className="flex flex-col  justify-center items-center w-full">
+          <div className="flex flex-col justify-center items-center w-full">
             <div className="text-center w-full">
               <div className="inline-block overflow-hidden px-4">
                 <DecryptedText
@@ -147,7 +155,7 @@ export default function Home() {
               opacity-0 translate-y-4 transition-all duration-700 ease-out animate-fade-up
               leading-relaxed">
               A versatile web developer with a passion for crafting dynamic and user-centric websites.
-              Currently, I'm pursuing a dual degree at IIT Madras and SNUC IoT, where I am deepening
+              Currently, I&apos;m pursuing a dual degree at IIT Madras and SNUC IoT, where I am deepening
               my understanding of technology and its applications.
             </p>
           </div>
@@ -254,11 +262,11 @@ export default function Home() {
                 DevPoint
               </LinkPreview>{", "}
               <LinkPreview url="https://www.snuchennai.edu.in/nss/" className="font-bold text-blue-500 hover:text-blue-400 transition-colors">
-                Shiv Nadar University's NSS
+                Shiv Nadar University&apos;s NSS
               </LinkPreview>{", "}
               and{" "}
               <LinkPreview url="https://ssnsnucinstincts.com/" className="font-bold text-blue-500 hover:text-blue-400 transition-colors">
-                Instincts'25 website
+                Instincts&apos;25 website
               </LinkPreview>.
             </p>
           </div>
