@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
+import React from 'react'
 
 interface DecryptedTextProps {
   text: string
@@ -62,7 +63,7 @@ export default function DecryptedText({
   encryptedClassName = '',
   animateOn = 'hover',
   ...props
-}: DecryptedTextProps): JSX.Element {
+}: DecryptedTextProps): React.ReactElement {
   const [displayText, setDisplayText] = useState<string>(text)
   const [isHovering, setIsHovering] = useState<boolean>(false)
   const [isScrambling, setIsScrambling] = useState<boolean>(false)
